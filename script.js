@@ -1,1 +1,718 @@
-const P={normal:["Consistent practice is the best way to improve typing speed and accuracy. Keep your eyes on the screen, relax your hands, and focus on pressing each key with the correct finger.","Technology changes quickly, but strong fundamentals remain valuable. Clear thinking, regular practice, and patience help people learn new skills."],numbers:["2026 48 317 905 120 64 77 305 999 16 42 87 110 250 768 501 33 28 91 445 70 18 622 340"],punctuation:["Typing well requires focus, rhythm, and accuracy. Don't rush: pause, correct mistakes, and continue. Can you maintain 95% accuracy while increasing speed?"],programming:["function calculateWpm(chars, minutes) { return Math.round((chars / 5) / minutes); }"]};let duration=60,remaining=60,timer=null,started=false,finished=false,passage='',mode='normal';const $=id=>document.getElementById(id),pe=$('passage'),ie=$('typingInput');function choose(){let a=P[mode];passage=a[Math.floor(Math.random()*a.length)]}function render(){pe.innerHTML='';[...passage].forEach((c,i)=>{let s=document.createElement('span');s.textContent=c;s.dataset.index=i;pe.appendChild(s)})}function fmt(s){return `${Math.floor(s/60).toString().padStart(2,'0')}:${(s%60).toString().padStart(2,'0')}`}function calc(){let t=ie.value,c=0,e=0;[...passage].forEach((ch,i)=>{let s=pe.children[i];s.className='';if(i<t.length){if(t[i]===ch){c++;s.classList.add('correct')}else{e++;s.classList.add('incorrect')}}else if(i===t.length&&!finished)s.classList.add('current')});if(t.length>passage.length)e+=t.length-passage.length;let el=Math.max(1,duration-remaining),w=Math.max(0,Math.round((c/5)/(el/60))),a=t.length?Math.max(0,Math.round(c/t.length*100)):100;$('wpm').textContent=w;$('accuracy').textContent=a+'%';$('errors').textContent=e;return{correct:c,errors:e,wpm:w,accuracy:a}}function start(){started=true;timer=setInterval(()=>{remaining--;$('time').textContent=fmt(remaining);calc();if(remaining<=0)finish()},1000)}function hist(s){let h=JSON.parse(localStorage.getItem('typesprint_history')||'[]');h.unshift({wpm:s.wpm,accuracy:s.accuracy,mode,duration});localStorage.setItem('typesprint_history',JSON.stringify(h.slice(0,10)));renderHist()}function renderHist(){let b=$('historyList');if(!b)return;let h=JSON.parse(localStorage.getItem('typesprint_history')||'[]');b.innerHTML=h.length?'':'<p class="section-intro">No completed tests yet.</p>';h.slice(0,5).forEach(x=>{let d=document.createElement('div');d.className='history-item';d.innerHTML=`<span>${x.mode} · ${Math.round(x.duration/60)} min</span><strong>${x.wpm} WPM · ${x.accuracy}%</strong>`;b.appendChild(d)})}function finish(){if(finished)return;finished=true;clearInterval(timer);ie.disabled=true;let s=calc();$('resultWpm').textContent=s.wpm;$('resultAccuracy').textContent=s.accuracy+'%';$('resultChars').textContent=s.correct;$('resultErrors').textContent=s.errors;let b=Number(localStorage.getItem('typesprint_best_wpm')||0);if(s.wpm>b){localStorage.setItem('typesprint_best_wpm',s.wpm);$('personalBest').textContent=`New personal best: ${s.wpm} WPM 🎉`}else $('personalBest').textContent=`Personal best: ${b} WPM`;$('resultPanel').classList.remove('hidden');hist(s)}function reset(){clearInterval(timer);remaining=duration;started=false;finished=false;ie.disabled=false;ie.value='';$('resultPanel').classList.add('hidden');$('time').textContent=fmt(duration);$('wpm').textContent='0';$('accuracy').textContent='100%';$('errors').textContent='0';choose();render();ie.focus()}ie.addEventListener('input',()=>{if(!started&&ie.value.length)start();calc();if(ie.value.length>=passage.length)finish()});document.querySelectorAll('[data-seconds]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-seconds]').forEach(x=>x.classList.remove('active'));b.classList.add('active');duration=Number(b.dataset.seconds);reset()}));$('modeSelect').addEventListener('change',e=>{mode=e.target.value;reset()});$('restartBtn').addEventListener('click',reset);$('dailyBtn').addEventListener('click',()=>{duration=60;mode='normal';$('modeSelect').value='normal';reset();location.hash='typing-test'});$('themeBtn').addEventListener('click',()=>{let h=document.documentElement,n=h.dataset.theme==='dark'?'light':'dark';h.dataset.theme=n;localStorage.setItem('typesprint_theme',n)});document.documentElement.dataset.theme=localStorage.getItem('typesprint_theme')||'light';$('year').textContent=new Date().getFullYear();renderHist();reset();
+const durationButtons =
+    document.querySelectorAll(
+        "#durationButtons button"
+    );
+
+const modeButtons =
+    document.querySelectorAll(
+        "#modeButtons button"
+    );
+
+const startButton =
+    document.getElementById(
+        "startTest"
+    );
+
+const typingArea =
+    document.getElementById(
+        "typingArea"
+    );
+
+const resultsSection =
+    document.getElementById(
+        "results"
+    );
+
+const textDisplay =
+    document.getElementById(
+        "textDisplay"
+    );
+
+const typingInput =
+    document.getElementById(
+        "typingInput"
+    );
+
+const timerDisplay =
+    document.getElementById(
+        "timer"
+    );
+
+const liveWpm =
+    document.getElementById(
+        "liveWpm"
+    );
+
+const liveAccuracy =
+    document.getElementById(
+        "liveAccuracy"
+    );
+
+const restartButton =
+    document.getElementById(
+        "restartTest"
+    );
+
+const tryAgainButton =
+    document.getElementById(
+        "tryAgain"
+    );
+
+const themeToggle =
+    document.getElementById(
+        "themeToggle"
+    );
+
+
+let selectedTime = 60;
+
+let selectedMode =
+    "normal";
+
+let timeLeft = 60;
+
+let timer = null;
+
+let testStarted = false;
+
+let targetText = "";
+
+let startTime = null;
+
+
+const texts = {
+
+    normal: [
+        `Typing is a valuable skill that improves with regular practice. Focus on accuracy first and gradually increase your speed as you become more comfortable with the keyboard.`,
+
+        `Technology allows people to communicate, learn and work more efficiently. Improving your typing speed can help you complete everyday computer tasks with greater confidence.`,
+
+        `Consistent practice is one of the best ways to become a faster typist. Keep your hands relaxed, use the correct fingers and try to maintain a steady rhythm while typing.`
+    ],
+
+    numbers: [
+        `4582 7391 6024 8753 1946 3278 5410 9632 7185 2049 6357 8421`,
+
+        `2026 4815 7302 5961 2487 9054 3618 7240 8536 1972 6408 3159`,
+
+        `14 29 67 81 45 93 26 58 72 30 19 64 88 41 53 76 95 22`
+    ],
+
+    punctuation: [
+        `Hello! How are you today? Let's practice: commas, periods, questions, and exclamation marks.`,
+
+        `Typing accurately isn't difficult; however, punctuation requires attention. Ready? Let's begin!`,
+
+        `Practice makes progress: use commas, periods, semicolons; quotation marks, apostrophes, and brackets.`
+    ],
+
+    programming: [
+        `function calculateWPM(chars, minutes) { return Math.round((chars / 5) / minutes); }`,
+
+        `const user = { name: "TypeSprint", active: true }; console.log(user.name);`,
+
+        `for (let i = 0; i < 10; i++) { console.log("Typing practice " + i); }`
+    ]
+
+};
+
+
+durationButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                durationButtons.forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+                button.classList.add(
+                    "active"
+                );
+
+                selectedTime =
+                    Number(
+                        button.dataset.time
+                    );
+
+            }
+        );
+
+    }
+);
+
+
+modeButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                modeButtons.forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+                button.classList.add(
+                    "active"
+                );
+
+                selectedMode =
+                    button.dataset.mode;
+
+            }
+        );
+
+    }
+);
+
+
+function getRandomText() {
+
+    const collection =
+        texts[selectedMode];
+
+    return collection[
+        Math.floor(
+            Math.random()
+            *
+            collection.length
+        )
+    ];
+
+}
+
+
+function startTest() {
+
+    clearInterval(timer);
+
+    timeLeft =
+        selectedTime;
+
+    timerDisplay.textContent =
+        timeLeft;
+
+    targetText =
+        getRandomText();
+
+    textDisplay.textContent =
+        targetText;
+
+    typingInput.value = "";
+
+    liveWpm.textContent =
+        "0";
+
+    liveAccuracy.textContent =
+        "100%";
+
+    typingArea.classList.remove(
+        "hidden"
+    );
+
+    resultsSection.classList.add(
+        "hidden"
+    );
+
+    testStarted = false;
+
+    startTime = null;
+
+    typingInput.disabled =
+        false;
+
+    typingInput.focus();
+
+    typingArea.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+function beginTimer() {
+
+    if (testStarted) {
+        return;
+    }
+
+    testStarted = true;
+
+    startTime =
+        Date.now();
+
+    timer =
+        setInterval(
+            () => {
+
+                timeLeft--;
+
+                timerDisplay.textContent =
+                    timeLeft;
+
+                updateStatistics();
+
+                if (timeLeft <= 0) {
+                    const result = {
+
+    wpm: Math.max(wpm, 0),
+
+    accuracy: Math.max(
+        accuracy,
+        0
+    ),
+
+    errors: errors,
+
+    duration:
+        selectedTime >= 60
+            ? `${selectedTime / 60} Min`
+            : `${selectedTime} Sec`,
+
+    mode:
+        selectedMode.charAt(0).toUpperCase()
+        +
+        selectedMode.slice(1),
+
+    date:
+        new Date().toLocaleString()
+
+};
+
+
+let history =
+    JSON.parse(
+        localStorage.getItem(
+            "typesprintHistory"
+        )
+        ||
+        "[]"
+    );
+
+
+history.unshift(result);
+
+
+history =
+    history.slice(0, 20);
+
+
+localStorage.setItem(
+    "typesprintHistory",
+    JSON.stringify(history)
+);
+
+                    finishTest();
+
+                }
+
+            },
+            1000
+        );
+
+}
+
+
+function updateStatistics() {
+
+    const typed =
+        typingInput.value;
+
+    if (!typed.length) {
+
+        liveWpm.textContent =
+            "0";
+
+        liveAccuracy.textContent =
+            "100%";
+
+        return;
+
+    }
+
+
+    let correct = 0;
+
+    for (
+        let i = 0;
+        i < typed.length;
+        i++
+    ) {
+
+        if (
+            typed[i]
+            ===
+            targetText[i]
+        ) {
+
+            correct++;
+
+        }
+
+    }
+
+
+    const elapsedMinutes =
+        Math.max(
+            (
+                Date.now()
+                -
+                startTime
+            )
+            /
+            60000,
+            0.01
+        );
+
+
+    const words =
+        correct
+        /
+        5;
+
+
+    const wpm =
+        Math.round(
+            words
+            /
+            elapsedMinutes
+        );
+
+
+    const accuracy =
+        Math.round(
+            (
+                correct
+                /
+                typed.length
+            )
+            *
+            100
+        );
+
+
+    liveWpm.textContent =
+        Math.max(
+            0,
+            wpm
+        );
+
+
+    liveAccuracy.textContent =
+        `${Math.max(
+            0,
+            accuracy
+        )}%`;
+
+}
+
+
+typingInput.addEventListener(
+    "input",
+    () => {
+
+        beginTimer();
+
+        updateStatistics();
+
+
+        if (
+            typingInput.value.length
+            >=
+            targetText.length
+        ) {
+
+            finishTest();
+
+        }
+
+    }
+);
+
+
+function finishTest() {
+
+    clearInterval(timer);
+
+    typingInput.disabled =
+        true;
+
+
+    const typed =
+        typingInput.value;
+
+
+    let correct = 0;
+
+
+    for (
+        let i = 0;
+        i < typed.length;
+        i++
+    ) {
+
+        if (
+            typed[i]
+            ===
+            targetText[i]
+        ) {
+
+            correct++;
+
+        }
+
+    }
+
+
+    const errors =
+        Math.max(
+            typed.length
+            -
+            correct,
+            0
+        );
+
+
+    const secondsUsed =
+        Math.max(
+            selectedTime
+            -
+            timeLeft,
+            1
+        );
+
+
+    const minutesUsed =
+        secondsUsed
+        /
+        60;
+
+
+    const wpm =
+        Math.round(
+            (
+                correct
+                /
+                5
+            )
+            /
+            minutesUsed
+        );
+
+
+    const accuracy =
+        typed.length
+        ?
+        Math.round(
+            (
+                correct
+                /
+                typed.length
+            )
+            *
+            100
+        )
+        :
+        0;
+
+
+    document.getElementById(
+        "resultWpm"
+    ).textContent =
+        Math.max(
+            wpm,
+            0
+        );
+
+
+    document.getElementById(
+        "resultAccuracy"
+    ).textContent =
+        `${Math.max(
+            accuracy,
+            0
+        )}%`;
+
+
+    document.getElementById(
+        "resultErrors"
+    ).textContent =
+        errors;
+
+
+    let best =
+        Number(
+            localStorage.getItem(
+                "typesprintBest"
+            )
+            ||
+            0
+        );
+
+
+    if (wpm > best) {
+
+        best = wpm;
+
+        localStorage.setItem(
+            "typesprintBest",
+            best
+        );
+
+    }
+
+
+    document.getElementById(
+        "personalBest"
+    ).textContent =
+        best;
+
+
+    resultsSection.classList.remove(
+        "hidden"
+    );
+
+
+    resultsSection.scrollIntoView({
+        behavior: "smooth"
+    });
+
+}
+
+
+startButton.addEventListener(
+    "click",
+    startTest
+);
+
+
+restartButton.addEventListener(
+    "click",
+    startTest
+);
+
+
+tryAgainButton.addEventListener(
+    "click",
+    startTest
+);
+
+
+document
+    .querySelectorAll(
+        ".quick-card"
+    )
+    .forEach(
+        card => {
+
+            card.addEventListener(
+                "click",
+                () => {
+
+                    selectedTime =
+                        Number(
+                            card.dataset.time
+                        );
+
+                    durationButtons.forEach(
+                        button => {
+
+                            button.classList.toggle(
+                                "active",
+                                Number(
+                                    button.dataset.time
+                                )
+                                ===
+                                selectedTime
+                            );
+
+                        }
+                    );
+
+                    startTest();
+
+                }
+            );
+
+        }
+    );
+
+
+document
+    .getElementById(
+        "dailyChallenge"
+    )
+    .addEventListener(
+        "click",
+        () => {
+
+            selectedTime =
+                60;
+
+            selectedMode =
+                "normal";
+
+            startTest();
+
+        }
+    );
+
+
+themeToggle.addEventListener(
+    "click",
+    () => {
+
+        document.body.classList.toggle(
+            "dark"
+        );
+
+        const dark =
+            document.body.classList.contains(
+                "dark"
+            );
+
+        themeToggle.textContent =
+            dark
+            ?
+            "☀️"
+            :
+            "🌙";
+
+        localStorage.setItem(
+            "typesprintTheme",
+            dark
+            ?
+            "dark"
+            :
+            "light"
+        );
+
+    }
+);
+
+
+if (
+    localStorage.getItem(
+        "typesprintTheme"
+    )
+    ===
+    "dark"
+) {
+
+    document.body.classList.add(
+        "dark"
+    );
+
+    themeToggle.textContent =
+        "☀️";
+
+}

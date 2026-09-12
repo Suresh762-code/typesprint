@@ -1,1 +1,650 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Number Typing Test | TypeSprint</title><meta name="description" content="Practice number typing speed and accuracy online"><link rel="canonical" href="https://example.com/number-typing-test.html"><link rel="stylesheet" href="styles.css"></head><body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html">Type<span>Sprint</span></a><nav class="nav"><a href="index.html#typing-test">Typing Test</a><a href="blog.html">Learn</a></nav></div></header><main class="container section content"><div class="eyebrow">Typing practice</div><h1>Number Typing Test</h1><p>Practice numeric entry for spreadsheets, finance and data-entry work.</p><p><a class="btn btn-primary" href="index.html#typing-test">Start Number Typing</a></p><h2>Tips</h2><ul><li>Prioritize accuracy.</li><li>Keep a steady rhythm.</li><li>Use consistent finger placement.</li></ul></main><footer class="footer"><div class="container footer-inner"><span>© 2026 TypeSprint</span></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Number Typing Test - Practice Numeric Typing | TypeSprint</title>
+
+    <meta
+        name="description"
+        content="Practice number typing online with TypeSprint. Improve numeric keypad speed, accuracy and confidence with free number typing exercises."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .special-hero {
+            padding: 80px 0 55px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(37,99,235,.13),
+                    transparent 42%
+                );
+        }
+
+        .special-hero h1 {
+            font-size: clamp(40px, 6vw, 62px);
+            line-height: 1.08;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+        }
+
+        .special-hero p:not(.eyebrow) {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .practice-area {
+            padding: 65px 0;
+        }
+
+        .practice-box {
+            max-width: 900px;
+            margin: auto;
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+
+            padding: 32px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .practice-stats {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .stat-box span {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .number-text {
+            font-family: "Courier New", monospace;
+            font-size: 24px;
+            line-height: 1.8;
+
+            padding: 24px;
+
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            margin-bottom: 16px;
+
+            word-spacing: 10px;
+        }
+
+        .number-input {
+            width: 100%;
+            min-height: 130px;
+
+            padding: 18px;
+
+            border: 2px solid var(--border);
+            border-radius: 14px;
+
+            background: var(--surface);
+            color: var(--text);
+
+            font-family: "Courier New", monospace;
+            font-size: 20px;
+
+            outline: none;
+            resize: vertical;
+        }
+
+        .number-input:focus {
+            border-color: var(--primary);
+        }
+
+        .practice-actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .info-section {
+            padding: 75px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            padding: 28px;
+            border-radius: 18px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        .tips-section {
+            padding: 75px 0;
+            background: var(--surface);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            gap: 18px;
+        }
+
+        .tip-card {
+            padding: 25px;
+            border-radius: 16px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+        }
+
+        .tip-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .tip-card p {
+            color: var(--muted);
+        }
+
+        @media(max-width:800px){
+            .info-grid,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width:520px){
+            .practice-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Type<span>Sprint</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Typing Test</a>
+            <a href="index.html#practice">Practice</a>
+            <a href="index.html#results">Results</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="special-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            NUMBER TYPING PRACTICE
+        </p>
+
+        <h1>
+            Improve Your Number Typing Speed
+        </h1>
+
+        <p>
+            Practice numeric typing and improve your speed,
+            accuracy and confidence with number-focused exercises.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="practice-area">
+
+    <div class="container">
+
+        <div class="practice-box">
+
+            <div class="practice-stats">
+
+                <div class="stat-box">
+                    <strong id="numberTimer">60</strong>
+                    <span>Seconds</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong id="numberSpeed">0</strong>
+                    <span>Numbers / Min</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong id="numberAccuracy">100%</strong>
+                    <span>Accuracy</span>
+                </div>
+
+            </div>
+
+
+            <div id="numberText" class="number-text">
+                4582 7391 6024 8753 1946 3278 5410 9632 7185 2049
+            </div>
+
+
+            <textarea
+                id="numberInput"
+                class="number-input"
+                placeholder="Start typing the numbers here..."
+                autocomplete="off"
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="practice-actions">
+
+                <button id="restartNumbers" class="primary-button">
+                    Restart Practice
+                </button>
+
+                <a
+                    href="index.html"
+                    class="secondary-button"
+                    style="text-decoration:none;display:inline-block;"
+                >
+                    Main Typing Test
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="info-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                WHY PRACTICE NUMBERS?
+            </p>
+
+            <h2>
+                Build faster numeric typing skills
+            </h2>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <article class="info-card">
+
+                <h3>
+                    Data Entry
+                </h3>
+
+                <p>
+                    Number typing practice can help with spreadsheets,
+                    accounting, billing and administrative work.
+                </p>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <h3>
+                    Numeric Accuracy
+                </h3>
+
+                <p>
+                    Practicing numbers helps reduce mistakes when typing
+                    values, codes, dates and other numeric information.
+                </p>
+
+            </article>
+
+
+            <article class="info-card">
+
+                <h3>
+                    Keyboard Confidence
+                </h3>
+
+                <p>
+                    Repetition helps you become more comfortable using
+                    the number row or numeric keypad.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="tips-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                NUMBER TYPING TIPS
+            </p>
+
+            <h2>
+                Improve speed without losing accuracy
+            </h2>
+
+        </div>
+
+
+        <div class="tips-grid">
+
+            <article class="tip-card">
+                <h3>Start slowly</h3>
+                <p>
+                    Focus on entering each number correctly before trying
+                    to increase your speed.
+                </p>
+            </article>
+
+            <article class="tip-card">
+                <h3>Use consistent finger movement</h3>
+                <p>
+                    Try to use the same finger pattern so key positions
+                    become easier to remember.
+                </p>
+            </article>
+
+            <article class="tip-card">
+                <h3>Practice short sessions</h3>
+                <p>
+                    Five to ten minutes of focused practice can be enough
+                    to build consistency.
+                </p>
+            </article>
+
+            <article class="tip-card">
+                <h3>Track accuracy</h3>
+                <p>
+                    High speed is less useful when numbers are entered incorrectly.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="blog-cta">
+
+    <div class="container">
+
+        <div class="blog-cta-box">
+
+            <p class="eyebrow">
+                NEXT STEP
+            </p>
+
+            <h2>
+                Test your full typing speed
+            </h2>
+
+            <p>
+                Try the main TypeSprint test to measure WPM,
+                accuracy and errors with normal text.
+            </p>
+
+            <a
+                href="index.html"
+                class="primary-button"
+                style="display:inline-block;text-decoration:none;"
+            >
+                Start Typing Test
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+            <a href="index.html" class="logo">
+                Type<span>Sprint</span>
+            </a>
+
+            <p>
+                Free online typing speed tests and practice tools.
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TypeSprint. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+    const numberSamples = [
+        "4582 7391 6024 8753 1946 3278 5410 9632 7185 2049",
+        "2026 4815 7302 5961 2487 9054 3618 7240 8536 1972",
+        "14 29 67 81 45 93 26 58 72 30 19 64 88 41 53 76"
+    ];
+
+    const numberText = document.getElementById("numberText");
+    const numberInput = document.getElementById("numberInput");
+    const numberTimer = document.getElementById("numberTimer");
+    const numberSpeed = document.getElementById("numberSpeed");
+    const numberAccuracy = document.getElementById("numberAccuracy");
+    const restartNumbers = document.getElementById("restartNumbers");
+
+    let timeLeft = 60;
+    let timer = null;
+    let started = false;
+    let sample = "";
+
+    function newNumberTest() {
+
+        clearInterval(timer);
+
+        sample =
+            numberSamples[
+                Math.floor(
+                    Math.random() * numberSamples.length
+                )
+            ];
+
+        numberText.textContent = sample;
+
+        numberInput.value = "";
+
+        timeLeft = 60;
+        started = false;
+
+        numberTimer.textContent = "60";
+        numberSpeed.textContent = "0";
+        numberAccuracy.textContent = "100%";
+
+        numberInput.disabled = false;
+        numberInput.focus();
+    }
+
+    function beginNumberTimer() {
+
+        if (started) return;
+
+        started = true;
+
+        timer = setInterval(() => {
+
+            timeLeft--;
+
+            numberTimer.textContent = timeLeft;
+
+            calculateNumberStats();
+
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                numberInput.disabled = true;
+            }
+
+        }, 1000);
+    }
+
+    function calculateNumberStats() {
+
+        const typed = numberInput.value;
+
+        if (!typed.length) return;
+
+        let correct = 0;
+
+        for (let i = 0; i < typed.length; i++) {
+
+            if (typed[i] === sample[i]) {
+                correct++;
+            }
+
+        }
+
+        const elapsed =
+            Math.max(60 - timeLeft, 1);
+
+        const charsPerMinute =
+            Math.round(
+                correct / (elapsed / 60)
+            );
+
+        const accuracy =
+            Math.round(
+                (correct / typed.length) * 100
+            );
+
+        numberSpeed.textContent =
+            Math.max(charsPerMinute, 0);
+
+        numberAccuracy.textContent =
+            `${Math.max(accuracy,0)}%`;
+    }
+
+    numberInput.addEventListener("input", () => {
+
+        beginNumberTimer();
+        calculateNumberStats();
+
+        if (numberInput.value.length >= sample.length) {
+            clearInterval(timer);
+            numberInput.disabled = true;
+        }
+    });
+
+    restartNumbers.addEventListener(
+        "click",
+        newNumberTest
+    );
+
+    newNumberTest();
+
+
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    themeToggle.addEventListener("click", () => {
+
+        document.body.classList.toggle("dark");
+
+        const dark =
+            document.body.classList.contains("dark");
+
+        themeToggle.textContent =
+            dark ? "☀️" : "🌙";
+
+        localStorage.setItem(
+            "typesprintTheme",
+            dark ? "dark" : "light"
+        );
+    });
+
+    if (
+        localStorage.getItem("typesprintTheme")
+        === "dark"
+    ) {
+        document.body.classList.add("dark");
+        themeToggle.textContent = "☀️";
+    }
+</script>
+
+</body>
+</html>

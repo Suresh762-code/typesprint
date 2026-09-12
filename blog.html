@@ -1,1 +1,772 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Typing Guides | TypeSprint</title><meta name="description" content="Typing guides for speed and accuracy"><link rel="canonical" href="https://example.com/blog.html"><link rel="stylesheet" href="styles.css"></head><body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html">Type<span>Sprint</span></a><nav class="nav"><a href="index.html#typing-test">Typing Test</a><a href="blog.html">Learn</a></nav></div></header><main class="container section content"><div class="eyebrow">Learning center</div><h1>Typing Guides</h1><div class="grid-3"><a class="card" href="good-typing-speed.html"><h3>What Is a Good Typing Speed?</h3><p>Understand WPM and progress.</p></a><a class="card" href="how-to-type-faster.html"><h3>How to Type Faster</h3><p>Practical improvement tips.</p></a><a class="card" href="programming-typing-test.html"><h3>Programming Practice</h3><p>Practice code-oriented typing.</p></a></div></main><footer class="footer"><div class="container footer-inner"><span>© 2026 TypeSprint</span></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Typing Guides & Tips - TypeSprint Learning Center</title>
+
+    <meta
+        name="description"
+        content="Explore TypeSprint typing guides covering typing speed, WPM, accuracy, typing practice, programming typing, number typing and ways to improve your keyboard skills."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .blog-hero {
+            padding: 85px 0 65px;
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(37, 99, 235, 0.13),
+                    transparent 42%
+                );
+        }
+
+        .blog-hero h1 {
+            font-size: clamp(42px, 7vw, 64px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 18px;
+        }
+
+        .blog-hero p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .blog-main {
+            padding: 70px 0 90px;
+        }
+
+        .featured-guide {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 30px;
+            align-items: stretch;
+
+            margin-bottom: 70px;
+        }
+
+        .featured-content,
+        .featured-visual {
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .featured-content {
+            padding: 42px;
+        }
+
+        .featured-content h2 {
+            font-size: clamp(30px, 4vw, 44px);
+            line-height: 1.15;
+            margin-bottom: 14px;
+        }
+
+        .featured-content p {
+            color: var(--muted);
+            margin-bottom: 22px;
+        }
+
+        .featured-visual {
+            min-height: 320px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.14),
+                    rgba(6, 182, 212, 0.14)
+                );
+        }
+
+        .featured-visual span {
+            font-size: clamp(52px, 8vw, 90px);
+            font-weight: 900;
+            color: var(--primary);
+            letter-spacing: -4px;
+        }
+
+        .blog-section {
+            margin-bottom: 70px;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .blog-card {
+            display: block;
+
+            text-decoration: none;
+            color: var(--text);
+
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.2s ease,
+                border-color 0.2s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+
+        .blog-card-top {
+            min-height: 150px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.11),
+                    rgba(6, 182, 212, 0.11)
+                );
+
+            font-weight: 900;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .blog-card-body {
+            padding: 24px;
+        }
+
+        .blog-category {
+            display: inline-block;
+
+            color: var(--primary);
+
+            font-size: 12px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .blog-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .blog-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .blog-meta {
+            margin-top: 16px;
+
+            color: var(--muted);
+            font-size: 12px;
+        }
+
+        .topic-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+
+            justify-content: center;
+
+            margin-top: 25px;
+        }
+
+        .topic-chip {
+            text-decoration: none;
+
+            color: var(--text);
+
+            background: var(--surface);
+
+            border: 1px solid var(--border);
+
+            border-radius: 999px;
+
+            padding: 10px 16px;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .topic-chip:hover {
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        .blog-cta {
+            padding: 75px 0;
+        }
+
+        .blog-cta-box {
+            text-align: center;
+
+            padding: 50px 30px;
+
+            border: 1px solid var(--border);
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.08),
+                    rgba(6, 182, 212, 0.08)
+                );
+        }
+
+        .blog-cta-box h2 {
+            font-size: clamp(30px, 5vw, 44px);
+            margin-bottom: 12px;
+        }
+
+        .blog-cta-box p {
+            max-width: 650px;
+            margin: 0 auto 24px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .featured-guide {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-content {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Type<span>Sprint</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Typing Test</a>
+            <a href="index.html#practice">Practice</a>
+            <a href="index.html#results">Results</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-button"
+            aria-label="Toggle dark mode"
+        >
+            🌙
+        </button>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="blog-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            TYPESPRINT LEARNING CENTER
+        </p>
+
+        <h1>
+            Typing Guides, Tips & Practice
+        </h1>
+
+        <p>
+            Learn how to improve your typing speed, increase accuracy,
+            understand WPM and practice specialized typing skills.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="blog-main">
+
+    <div class="container">
+
+
+        <section class="featured-guide">
+
+            <div class="featured-content">
+
+                <p class="eyebrow">
+                    FEATURED GUIDE
+                </p>
+
+                <h2>
+                    What Is a Good Typing Speed?
+                </h2>
+
+                <p>
+                    Learn what WPM means, how typing speeds are commonly
+                    compared and what you can do to improve your own typing
+                    performance over time.
+                </p>
+
+                <a
+                    href="good-typing-speed.html"
+                    class="primary-button"
+                    style="display:inline-block;text-decoration:none;"
+                >
+                    Read the Guide
+                </a>
+
+            </div>
+
+
+            <div class="featured-visual">
+                <span>WPM</span>
+            </div>
+
+        </section>
+
+
+        <section class="blog-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    POPULAR GUIDES
+                </p>
+
+                <h2>
+                    Start with the essentials
+                </h2>
+
+                <p>
+                    Practical guides for improving speed, accuracy and keyboard confidence.
+                </p>
+
+            </div>
+
+
+            <div class="blog-grid">
+
+
+                <a
+                    href="how-to-type-faster.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        ↑ WPM
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            Typing Improvement
+                        </span>
+
+                        <h3>
+                            How to Type Faster
+                        </h3>
+
+                        <p>
+                            Learn practical ways to improve typing speed
+                            without sacrificing accuracy.
+                        </p>
+
+                        <div class="blog-meta">
+                            Beginner friendly
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="good-typing-speed.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        60+
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            WPM
+                        </span>
+
+                        <h3>
+                            What Is a Good Typing Speed?
+                        </h3>
+
+                        <p>
+                            Understand common WPM ranges and how to evaluate
+                            your own typing progress.
+                        </p>
+
+                        <div class="blog-meta">
+                            Speed guide
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="programming-typing-test.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        &lt;/&gt;
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            Developers
+                        </span>
+
+                        <h3>
+                            Programming Typing Practice
+                        </h3>
+
+                        <p>
+                            Practice code-oriented text, brackets, symbols
+                            and common programming syntax.
+                        </p>
+
+                        <div class="blog-meta">
+                            Developer practice
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="number-typing-test.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        123
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            Numbers
+                        </span>
+
+                        <h3>
+                            Number Typing Practice
+                        </h3>
+
+                        <p>
+                            Improve numeric entry speed and accuracy with
+                            dedicated number-focused typing practice.
+                        </p>
+
+                        <div class="blog-meta">
+                            Numeric practice
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="punctuation-typing-test.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        !?
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            Accuracy
+                        </span>
+
+                        <h3>
+                            Punctuation Typing Practice
+                        </h3>
+
+                        <p>
+                            Practice commas, quotation marks, brackets and
+                            other symbols that can slow down typing.
+                        </p>
+
+                        <div class="blog-meta">
+                            Accuracy practice
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a
+                    href="index.html"
+                    class="blog-card"
+                >
+
+                    <div class="blog-card-top">
+                        ⏱
+                    </div>
+
+                    <div class="blog-card-body">
+
+                        <span class="blog-category">
+                            Typing Tests
+                        </span>
+
+                        <h3>
+                            Timed Typing Tests
+                        </h3>
+
+                        <p>
+                            Take 30-second, 1-minute, 2-minute, 3-minute,
+                            5-minute or 10-minute typing tests.
+                        </p>
+
+                        <div class="blog-meta">
+                            Free practice
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+
+        <section class="blog-section">
+
+            <div class="section-heading">
+
+                <p class="eyebrow">
+                    EXPLORE BY TOPIC
+                </p>
+
+                <h2>
+                    Find the practice you need
+                </h2>
+
+            </div>
+
+
+            <div class="topic-row">
+
+                <a href="index.html" class="topic-chip">
+                    Typing Tests
+                </a>
+
+                <a href="good-typing-speed.html" class="topic-chip">
+                    WPM
+                </a>
+
+                <a href="how-to-type-faster.html" class="topic-chip">
+                    Speed Improvement
+                </a>
+
+                <a href="number-typing-test.html" class="topic-chip">
+                    Number Typing
+                </a>
+
+                <a href="punctuation-typing-test.html" class="topic-chip">
+                    Punctuation
+                </a>
+
+                <a href="programming-typing-test.html" class="topic-chip">
+                    Programming
+                </a>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="blog-cta">
+
+    <div class="container">
+
+        <div class="blog-cta-box">
+
+            <p class="eyebrow">
+                PUT IT INTO PRACTICE
+            </p>
+
+            <h2>
+                Ready to test your typing speed?
+            </h2>
+
+            <p>
+                Choose a test duration, start typing and measure your
+                WPM, accuracy and errors instantly.
+            </p>
+
+            <a
+                href="index.html"
+                class="primary-button"
+                style="display:inline-block;text-decoration:none;"
+            >
+                Start Typing Test
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+
+            <a href="index.html" class="logo">
+                Type<span>Sprint</span>
+            </a>
+
+            <p>
+                Free online typing speed tests and practice tools.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a href="privacy.html">
+                Privacy
+            </a>
+
+            <a href="terms.html">
+                Terms
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TypeSprint. All rights reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle("dark");
+
+            const dark =
+                document.body.classList.contains("dark");
+
+            themeToggle.textContent =
+                dark ? "☀️" : "🌙";
+
+            localStorage.setItem(
+                "typesprintTheme",
+                dark ? "dark" : "light"
+            );
+
+        }
+    );
+
+    if (
+        localStorage.getItem("typesprintTheme")
+        === "dark"
+    ) {
+
+        document.body.classList.add("dark");
+
+        themeToggle.textContent = "☀️";
+
+    }
+</script>
+
+
+</body>
+</html>

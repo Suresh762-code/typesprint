@@ -1,1 +1,634 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Punctuation Typing Test | TypeSprint</title><meta name="description" content="Practice punctuation and symbol typing online"><link rel="canonical" href="https://example.com/punctuation-typing-test.html"><link rel="stylesheet" href="styles.css"></head><body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html">Type<span>Sprint</span></a><nav class="nav"><a href="index.html#typing-test">Typing Test</a><a href="blog.html">Learn</a></nav></div></header><main class="container section content"><div class="eyebrow">Typing practice</div><h1>Punctuation Typing Test</h1><p>Practice commas, periods, colons, semicolons, apostrophes and other symbols.</p><p><a class="btn btn-primary" href="index.html#typing-test">Start Punctuation Typing</a></p></main><footer class="footer"><div class="container footer-inner"><span>© 2026 TypeSprint</span></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Punctuation Typing Test - TypeSprint</title>
+
+    <meta
+        name="description"
+        content="Practice punctuation typing online with TypeSprint. Improve speed and accuracy using commas, periods, quotation marks, brackets, apostrophes and symbols."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .special-hero {
+            padding: 70px 0 45px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(37, 99, 235, 0.12),
+                    transparent 42%
+                );
+        }
+
+        .special-hero h1 {
+            font-size: clamp(38px, 6vw, 58px);
+            line-height: 1.08;
+            margin-bottom: 16px;
+        }
+
+        .special-hero p:not(.eyebrow) {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .practice-area {
+            padding: 55px 0 80px;
+        }
+
+        .practice-box {
+            max-width: 930px;
+            margin: 0 auto;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            padding: 32px;
+            box-shadow: var(--shadow);
+        }
+
+        .practice-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 24px;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 20px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+        }
+
+        .stat-box strong {
+            display: block;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-box span {
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .typing-text {
+            padding: 24px;
+            min-height: 150px;
+            font-size: 22px;
+            line-height: 1.8;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            margin-bottom: 18px;
+            color: var(--text);
+        }
+
+        .typing-input {
+            width: 100%;
+            min-height: 130px;
+            padding: 18px;
+            font-size: 19px;
+            line-height: 1.6;
+            border-radius: 14px;
+            border: 2px solid var(--border);
+            background: var(--surface);
+            color: var(--text);
+            outline: none;
+            resize: vertical;
+        }
+
+        .typing-input:focus {
+            border-color: var(--primary);
+        }
+
+        .practice-actions {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .info-section {
+            padding: 70px 0;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            padding: 28px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: var(--muted);
+        }
+
+        @media(max-width: 800px) {
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media(max-width: 520px) {
+            .practice-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Type<span>Sprint</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Typing Test</a>
+            <a href="index.html#practice">Practice</a>
+            <a href="results.html">Results</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <button
+            id="themeToggle"
+            class="theme-button"
+            aria-label="Toggle dark mode"
+        >
+            🌙
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="special-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            PUNCTUATION TYPING PRACTICE
+        </p>
+
+        <h1>
+            Improve Your Punctuation Typing
+        </h1>
+
+        <p>
+            Practice commas, quotation marks, brackets, apostrophes
+            and other symbols while improving typing speed and accuracy.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="practice-area">
+
+    <div class="container">
+
+        <div class="practice-box">
+
+            <div class="practice-stats">
+
+                <div class="stat-box">
+                    <strong id="timer">60</strong>
+                    <span>Seconds</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong id="speed">0</strong>
+                    <span>Characters / Min</span>
+                </div>
+
+                <div class="stat-box">
+                    <strong id="accuracy">100%</strong>
+                    <span>Accuracy</span>
+                </div>
+
+            </div>
+
+
+            <div
+                id="typingText"
+                class="typing-text"
+            ></div>
+
+
+            <textarea
+                id="typingInput"
+                class="typing-input"
+                placeholder="Start typing the punctuation text here..."
+                autocomplete="off"
+                spellcheck="false"
+            ></textarea>
+
+
+            <div class="practice-actions">
+
+                <button
+                    id="restartButton"
+                    class="primary-button"
+                >
+                    Restart Practice
+                </button>
+
+                <a
+                    href="index.html"
+                    class="secondary-button"
+                    style="text-decoration:none;display:inline-block;"
+                >
+                    Main Typing Test
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="info-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                WHY PRACTICE PUNCTUATION?
+            </p>
+
+            <h2>
+                Improve real-world typing accuracy
+            </h2>
+
+        </div>
+
+
+        <div class="info-grid">
+
+            <article class="info-card">
+                <h3>Writing Accuracy</h3>
+                <p>
+                    Practice punctuation so commas, periods and
+                    apostrophes do not interrupt your typing flow.
+                </p>
+            </article>
+
+
+            <article class="info-card">
+                <h3>Professional Writing</h3>
+                <p>
+                    Emails, documents and reports require consistent
+                    punctuation and accurate symbol usage.
+                </p>
+            </article>
+
+
+            <article class="info-card">
+                <h3>Symbol Familiarity</h3>
+                <p>
+                    Become faster with quotation marks, brackets,
+                    colons, semicolons and other keyboard symbols.
+                </p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+
+            <a href="index.html" class="logo">
+                Type<span>Sprint</span>
+            </a>
+
+            <p>
+                Free online typing speed tests and practice tools.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TypeSprint. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+    const samples = [
+        `Hello! How are you today? Let's practice: commas, periods, questions, quotation marks, and brackets.`,
+
+        `Typing accurately isn't difficult; however, punctuation requires attention. Ready? Let's begin!`,
+
+        `Practice makes progress: commas, periods, semicolons; quotation marks, apostrophes, brackets (and more).`,
+
+        `She asked, "Are you ready?" I replied, "Yes, let's start!" Then the test began immediately.`,
+
+        `Emails, reports, notes, and documents often use punctuation correctly; practice helps you type them faster.`,
+
+        `Today's goal is simple: type carefully, avoid mistakes, and improve your speed—one sentence at a time.`,
+
+        `Can you type this correctly? It includes commas, questions, apostrophes, parentheses (like these), and more!`
+    ];
+
+
+    const typingText =
+        document.getElementById("typingText");
+
+    const typingInput =
+        document.getElementById("typingInput");
+
+    const timerDisplay =
+        document.getElementById("timer");
+
+    const speedDisplay =
+        document.getElementById("speed");
+
+    const accuracyDisplay =
+        document.getElementById("accuracy");
+
+    const restartButton =
+        document.getElementById("restartButton");
+
+
+    let currentText = "";
+    let timeLeft = 60;
+    let timer = null;
+    let started = false;
+
+
+    function getRandomSample() {
+
+        return samples[
+            Math.floor(
+                Math.random() * samples.length
+            )
+        ];
+    }
+
+
+    function buildLongText() {
+
+        let text = "";
+
+        while (text.length < 900) {
+
+            text += getRandomSample() + " ";
+
+        }
+
+        return text.trim();
+    }
+
+
+    function startNewTest() {
+
+        clearInterval(timer);
+
+        currentText = buildLongText();
+
+        typingText.textContent =
+            currentText;
+
+        typingInput.value = "";
+
+        typingInput.disabled = false;
+
+        timeLeft = 60;
+        started = false;
+
+        timerDisplay.textContent = "60";
+        speedDisplay.textContent = "0";
+        accuracyDisplay.textContent = "100%";
+
+        typingInput.focus();
+    }
+
+
+    function startTimer() {
+
+        if (started) return;
+
+        started = true;
+
+        timer = setInterval(() => {
+
+            timeLeft--;
+
+            timerDisplay.textContent =
+                timeLeft;
+
+            updateStats();
+
+            if (timeLeft <= 0) {
+
+                finishTest();
+
+            }
+
+        }, 1000);
+
+    }
+
+
+    function updateStats() {
+
+        const typed =
+            typingInput.value;
+
+        if (!typed.length) {
+
+            speedDisplay.textContent = "0";
+            accuracyDisplay.textContent = "100%";
+            return;
+
+        }
+
+        let correct = 0;
+
+        for (
+            let i = 0;
+            i < typed.length;
+            i++
+        ) {
+
+            if (
+                typed[i] ===
+                currentText[i]
+            ) {
+
+                correct++;
+
+            }
+
+        }
+
+
+        const elapsed =
+            Math.max(
+                60 - timeLeft,
+                1
+            );
+
+
+        const charactersPerMinute =
+            Math.round(
+                correct /
+                (elapsed / 60)
+            );
+
+
+        const accuracy =
+            Math.round(
+                (
+                    correct /
+                    typed.length
+                ) * 100
+            );
+
+
+        speedDisplay.textContent =
+            Math.max(
+                charactersPerMinute,
+                0
+            );
+
+
+        accuracyDisplay.textContent =
+            `${Math.max(
+                accuracy,
+                0
+            )}%`;
+
+    }
+
+
+    function finishTest() {
+
+        clearInterval(timer);
+
+        typingInput.disabled = true;
+
+        timerDisplay.textContent = "0";
+
+        updateStats();
+
+    }
+
+
+    typingInput.addEventListener(
+        "input",
+        () => {
+
+            startTimer();
+            updateStats();
+
+        }
+    );
+
+
+    restartButton.addEventListener(
+        "click",
+        startNewTest
+    );
+
+
+    startNewTest();
+
+
+    const themeToggle =
+        document.getElementById(
+            "themeToggle"
+        );
+
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle(
+                "dark"
+            );
+
+            const dark =
+                document.body.classList.contains(
+                    "dark"
+                );
+
+            themeToggle.textContent =
+                dark ? "☀️" : "🌙";
+
+            localStorage.setItem(
+                "typesprintTheme",
+                dark ? "dark" : "light"
+            );
+
+        }
+    );
+
+
+    if (
+        localStorage.getItem(
+            "typesprintTheme"
+        ) === "dark"
+    ) {
+
+        document.body.classList.add(
+            "dark"
+        );
+
+        themeToggle.textContent =
+            "☀️";
+
+    }
+</script>
+
+</body>
+</html>

@@ -1,1 +1,689 @@
-<!doctype html><html lang="en" data-theme="light"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>TypeSprint – Free Typing Test, WPM & Accuracy</title><meta name="description" content="Take a free typing test online. Measure WPM, accuracy, errors and practice normal text, numbers, punctuation and programming typing."><meta name="robots" content="index,follow"><link rel="canonical" href="https://example.com/"><link rel="stylesheet" href="styles.css"></head><body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html">Type<span>Sprint</span></a><nav class="nav"><a href="#typing-test">Typing Test</a><a href="#tools">Modes</a><a href="#progress">Progress</a><a href="blog.html">Learn</a></nav><button class="icon-btn" id="themeBtn">◐</button></div></header><main><section class="hero"><div class="container"><div class="eyebrow">Free online typing speed test</div><h1>Type faster. Measure progress. Improve every day.</h1><p>Test your WPM and accuracy with timed challenges for normal text, numbers, punctuation and programming.</p><div class="badge-row"><span class="badge">No signup</span><span class="badge">Mobile friendly</span><span class="badge">Local progress tracking</span><span class="badge">Free to use</span></div></div></section><div class="container ad-slot">AdSense placeholder — activate only after approval.</div><section class="container" id="typing-test"><div class="test-shell"><div class="toolbar"><div class="segment"><button class="active" data-seconds="60">1 Min</button><button data-seconds="120">2 Min</button><button data-seconds="180">3 Min</button><button data-seconds="300">5 Min</button><button data-seconds="600">10 Min</button></div><select class="mode-select" id="modeSelect"><option value="normal">Normal Text</option><option value="numbers">Numbers</option><option value="punctuation">Punctuation</option><option value="programming">Programming</option></select></div><div class="stats"><div class="stat"><strong id="time">01:00</strong><span>Time</span></div><div class="stat"><strong id="wpm">0</strong><span>WPM</span></div><div class="stat"><strong id="accuracy">100%</strong><span>Accuracy</span></div><div class="stat"><strong id="errors">0</strong><span>Errors</span></div></div><div class="passage" id="passage"></div><label class="sr-only" for="typingInput">Type here</label><textarea id="typingInput" placeholder="Start typing here..." autocomplete="off" spellcheck="false"></textarea><div class="actions"><button class="btn btn-primary" id="restartBtn">Restart Test</button></div><div class="result hidden" id="resultPanel"><h2>Your result</h2><div class="result-grid"><div><strong id="resultWpm">0</strong><span>WPM</span></div><div><strong id="resultAccuracy">0%</strong><span>Accuracy</span></div><div><strong id="resultChars">0</strong><span>Correct chars</span></div><div><strong id="resultErrors">0</strong><span>Errors</span></div></div><p id="personalBest"></p></div></div></section><section class="section" id="tools"><div class="container"><h2>Practice different typing skills</h2><div class="grid-3"><a class="card" href="number-typing-test.html"><h3>Number Typing Test</h3><p>Practice numeric speed and precision.</p></a><a class="card" href="punctuation-typing-test.html"><h3>Punctuation Test</h3><p>Improve symbols and sentence accuracy.</p></a><a class="card" href="programming-typing-test.html"><h3>Programming Test</h3><p>Practice code-like syntax and symbols.</p></a></div></div></section><div class="container ad-slot">Future in-content ad area. Keep ads away from typing controls.</div><section class="section" id="progress"><div class="container grid-3"><div class="card" style="grid-column:span 2"><h2 style="font-size:1.6rem">Recent progress</h2><div class="history-list" id="historyList"></div></div><div class="card"><h3>Daily challenge</h3><p>Complete one focused 1-minute test today.</p><button class="btn btn-secondary" id="dailyBtn">Start</button></div></div></section><section class="section"><div class="container content"><h2>What is WPM?</h2><p>WPM means words per minute. Typing tests commonly treat five characters as one word.</p><h2>How to improve your typing speed</h2><p>Focus on accuracy first, use consistent finger placement, avoid looking at the keyboard and practice in short sessions.</p></div></section></main><footer class="footer"><div class="container footer-inner"><span>© <span id="year"></span> TypeSprint</span><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="blog.html">Learn</a></div></div></footer><script src="script.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>TypeSprint - Free Online Typing Speed Test</title>
+
+    <meta
+        name="description"
+        content="Take a free online typing speed test with TypeSprint. Measure WPM, accuracy and errors with timed typing tests for normal text, numbers, punctuation and programming."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Type<span>Sprint</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Typing Test</a>
+            <a href="#practice">Practice</a>
+            <a href="#results">Results</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            FREE ONLINE TYPING SPEED TEST
+        </p>
+
+        <h1>
+            Test Your Typing Speed
+        </h1>
+
+        <p class="hero-subtitle">
+            Check your WPM, accuracy and typing performance instantly.
+        </p>
+
+
+        <div class="test-card">
+
+            <div class="selection-group">
+
+                <p class="selection-title">
+                    Test Duration
+                </p>
+
+                <div class="option-buttons" id="durationButtons">
+
+                    <button data-time="30">
+                        30 Sec
+                    </button>
+
+                    <button
+                        data-time="60"
+                        class="active"
+                    >
+                        1 Min
+                    </button>
+
+                    <button data-time="120">
+                        2 Min
+                    </button>
+
+                    <button data-time="180">
+                        3 Min
+                    </button>
+
+                    <button data-time="300">
+                        5 Min
+                    </button>
+
+                    <button data-time="600">
+                        10 Min
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="selection-group">
+
+                <p class="selection-title">
+                    Typing Mode
+                </p>
+
+                <div class="option-buttons mode-buttons" id="modeButtons">
+
+                    <button
+                        data-mode="normal"
+                        class="active"
+                    >
+                        Normal
+                    </button>
+
+                    <button data-mode="numbers">
+                        Numbers
+                    </button>
+
+                    <button data-mode="punctuation">
+                        Punctuation
+                    </button>
+
+                    <button data-mode="programming">
+                        Programming
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <button
+                id="startTest"
+                class="primary-button"
+            >
+                Start Typing Test
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    id="typingArea"
+    class="typing-section hidden"
+>
+
+    <div class="container">
+
+        <div class="typing-card">
+
+            <div class="typing-stats">
+
+                <div>
+                    <span id="timer">60</span>
+                    <small>Seconds</small>
+                </div>
+
+                <div>
+                    <span id="liveWpm">0</span>
+                    <small>WPM</small>
+                </div>
+
+                <div>
+                    <span id="liveAccuracy">100%</span>
+                    <small>Accuracy</small>
+                </div>
+
+            </div>
+
+
+            <div
+                id="textDisplay"
+                class="text-display"
+            ></div>
+
+
+            <textarea
+                id="typingInput"
+                placeholder="Start typing here..."
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+            ></textarea>
+
+
+            <button
+                id="restartTest"
+                class="secondary-button"
+            >
+                Restart Test
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    id="results"
+    class="results-section hidden"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                YOUR RESULTS
+            </p>
+
+            <h2>
+                Typing Test Results
+            </h2>
+
+        </div>
+
+
+        <div class="result-grid">
+
+            <div class="result-card">
+
+                <strong id="resultWpm">
+                    0
+                </strong>
+
+                <span>
+                    WPM
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <strong id="resultAccuracy">
+                    0%
+                </strong>
+
+                <span>
+                    Accuracy
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <strong id="resultErrors">
+                    0
+                </strong>
+
+                <span>
+                    Errors
+                </span>
+
+            </div>
+
+
+            <div class="result-card">
+
+                <strong id="personalBest">
+                    0
+                </strong>
+
+                <span>
+                    Personal Best
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <button
+            id="tryAgain"
+            class="primary-button"
+        >
+            Try Again
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<section class="quick-tests">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                QUICK START
+            </p>
+
+            <h2>
+                Popular Typing Tests
+            </h2>
+
+            <p>
+                Choose a duration and start testing your typing speed instantly.
+            </p>
+
+        </div>
+
+
+        <div class="quick-grid">
+
+            <button
+                class="quick-card"
+                data-time="60"
+            >
+                <strong>1 Minute</strong>
+                <span>Typing Test</span>
+            </button>
+
+            <button
+                class="quick-card"
+                data-time="120"
+            >
+                <strong>2 Minute</strong>
+                <span>Typing Test</span>
+            </button>
+
+            <button
+                class="quick-card"
+                data-time="180"
+            >
+                <strong>3 Minute</strong>
+                <span>Typing Test</span>
+            </button>
+
+            <button
+                class="quick-card"
+                data-time="300"
+            >
+                <strong>5 Minute</strong>
+                <span>Typing Test</span>
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section
+    id="practice"
+    class="practice-section"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                PRACTICE
+            </p>
+
+            <h2>
+                Improve Your Typing Skills
+            </h2>
+
+            <p>
+                Practice different types of typing and improve your accuracy and speed.
+            </p>
+
+        </div>
+
+
+        <div class="practice-grid">
+
+            <a
+                href="number-typing-test.html"
+                class="practice-card"
+            >
+                <span class="practice-icon">
+                    123
+                </span>
+
+                <h3>
+                    Number Typing
+                </h3>
+
+                <p>
+                    Improve numeric typing speed and accuracy.
+                </p>
+
+            </a>
+
+
+            <a
+                href="punctuation-typing-test.html"
+                class="practice-card"
+            >
+
+                <span class="practice-icon">
+                    !?
+                </span>
+
+                <h3>
+                    Punctuation Typing
+                </h3>
+
+                <p>
+                    Practice symbols, punctuation and special characters.
+                </p>
+
+            </a>
+
+
+            <a
+                href="programming-typing-test.html"
+                class="practice-card"
+            >
+
+                <span class="practice-icon">
+                    &lt;/&gt;
+                </span>
+
+                <h3>
+                    Programming Typing
+                </h3>
+
+                <p>
+                    Practice typing common programming syntax and code.
+                </p>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="daily-section">
+
+    <div class="container daily-card">
+
+        <div>
+
+            <p class="eyebrow">
+                DAILY CHALLENGE
+            </p>
+
+            <h2>
+                Improve a little every day.
+            </h2>
+
+            <p>
+                Complete today's 1-minute typing challenge and try to beat your personal best.
+            </p>
+
+        </div>
+
+        <button
+            id="dailyChallenge"
+            class="primary-button"
+        >
+            Start Daily Challenge
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<section class="seo-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                TYPING SPEED
+            </p>
+
+            <h2>
+                Improve Your Typing Speed and Accuracy
+            </h2>
+
+        </div>
+
+        <div class="content-columns">
+
+            <div>
+
+                <h3>
+                    What is a typing test?
+                </h3>
+
+                <p>
+                    A typing test measures how quickly and accurately you can type a sample of text.
+                    Results are commonly displayed as words per minute, or WPM, together with your accuracy.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    What is WPM?
+                </h3>
+
+                <p>
+                    WPM means words per minute. A standard word is generally calculated as five typed characters,
+                    allowing typing speed to be compared consistently.
+                </p>
+
+            </div>
+
+            <div>
+
+                <h3>
+                    How can I type faster?
+                </h3>
+
+                <p>
+                    Practice regularly, focus on accuracy before speed, use proper finger positioning
+                    and gradually increase your typing pace.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="faq-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                TYPING TEST FAQ
+            </p>
+
+            <h2>
+                Frequently Asked Questions
+            </h2>
+
+        </div>
+
+
+        <div class="faq-grid">
+
+            <article>
+
+                <h3>
+                    What is a good typing speed?
+                </h3>
+
+                <p>
+                    Around 40 WPM is common for everyday typing.
+                    Speeds of 60 WPM or more are considered strong for many users.
+                </p>
+
+            </article>
+
+
+            <article>
+
+                <h3>
+                    How is typing accuracy calculated?
+                </h3>
+
+                <p>
+                    Accuracy compares correctly typed characters with the total number of characters typed.
+                </p>
+
+            </article>
+
+
+            <article>
+
+                <h3>
+                    How long should a typing test be?
+                </h3>
+
+                <p>
+                    A one-minute test is convenient for quick checks, while longer tests can provide a more stable measure.
+                </p>
+
+            </article>
+
+
+            <article>
+
+                <h3>
+                    Can I take the typing test for free?
+                </h3>
+
+                <p>
+                    Yes. TypeSprint provides free typing tests and practice modes.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                Type<span>Sprint</span>
+            </a>
+
+            <p>
+                Free online typing speed tests and practice tools.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a href="privacy.html">
+                Privacy
+            </a>
+
+            <a href="terms.html">
+                Terms
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TypeSprint. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

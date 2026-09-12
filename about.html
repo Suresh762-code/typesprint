@@ -1,1 +1,770 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>About TypeSprint</title><meta name="description" content="About the TypeSprint typing test"><link rel="canonical" href="https://example.com/about.html"><link rel="stylesheet" href="styles.css"></head><body><header class="header"><div class="container nav-wrap"><a class="brand" href="index.html">Type<span>Sprint</span></a><nav class="nav"><a href="index.html#typing-test">Typing Test</a><a href="blog.html">Learn</a></nav></div></header><main class="container section content"><h1>About TypeSprint</h1><p>TypeSprint is a lightweight typing practice website for measuring WPM, accuracy and errors without requiring an account.</p></main><footer class="footer"><div class="container footer-inner"><span>© 2026 TypeSprint</span></div></footer></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About TypeSprint - Free Online Typing Test</title>
+
+    <meta
+        name="description"
+        content="Learn about TypeSprint, a free online typing speed test and practice platform for improving WPM, accuracy, numbers, punctuation and programming typing."
+    >
+
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .about-hero {
+            padding: 90px 0 70px;
+            text-align: center;
+            background:
+                radial-gradient(
+                    circle at top,
+                    rgba(37, 99, 235, 0.14),
+                    transparent 42%
+                );
+        }
+
+        .about-hero h1 {
+            font-size: clamp(42px, 7vw, 68px);
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .about-hero p {
+            max-width: 760px;
+            margin: 0 auto;
+            color: var(--muted);
+            font-size: 18px;
+        }
+
+        .about-intro {
+            padding: 80px 0;
+        }
+
+        .about-intro-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-intro h2 {
+            font-size: clamp(32px, 5vw, 46px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .about-intro p {
+            color: var(--muted);
+            margin-bottom: 16px;
+            font-size: 17px;
+        }
+
+        .about-visual {
+            min-height: 340px;
+            border-radius: 28px;
+            padding: 35px;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.15),
+                    rgba(6, 182, 212, 0.15)
+                );
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: var(--shadow);
+        }
+
+        .about-visual h3 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .about-stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .about-stat {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 24px;
+        }
+
+        .about-stat strong {
+            display: block;
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .about-stat span {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .mission-section {
+            padding: 80px 0;
+            background: var(--surface);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .mission-card {
+            padding: 32px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: var(--bg);
+        }
+
+        .mission-number {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.12);
+            color: var(--primary);
+            font-weight: 800;
+            margin-bottom: 18px;
+        }
+
+        .mission-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .mission-card p {
+            color: var(--muted);
+        }
+
+        .features-about {
+            padding: 80px 0;
+        }
+
+        .features-about-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .feature-about-card {
+            padding: 28px;
+            border-radius: 18px;
+            border: 1px solid var(--border);
+            background: var(--surface);
+            text-align: center;
+        }
+
+        .feature-about-icon {
+            width: 54px;
+            height: 54px;
+            margin: 0 auto 16px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(37, 99, 235, 0.10);
+            color: var(--primary);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .feature-about-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .feature-about-card p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .why-section {
+            padding: 80px 0;
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.07),
+                    rgba(6, 182, 212, 0.08)
+                );
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .why-grid h2 {
+            font-size: clamp(32px, 5vw, 44px);
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .why-grid p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .why-list {
+            list-style: none;
+            display: grid;
+            gap: 14px;
+        }
+
+        .why-list li {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 16px 18px;
+            font-weight: 600;
+        }
+
+        .about-cta {
+            padding: 80px 0;
+        }
+
+        .about-cta-box {
+            text-align: center;
+            border: 1px solid var(--border);
+            border-radius: 26px;
+            padding: 55px 30px;
+            background: var(--surface);
+            box-shadow: var(--shadow);
+        }
+
+        .about-cta-box h2 {
+            font-size: clamp(30px, 5vw, 44px);
+            margin-bottom: 12px;
+        }
+
+        .about-cta-box p {
+            max-width: 650px;
+            margin: 0 auto 25px;
+            color: var(--muted);
+        }
+
+        @media (max-width: 900px) {
+            .about-intro-grid,
+            .why-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features-about-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 520px) {
+            .features-about-grid,
+            .about-stat-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-hero {
+                padding: 65px 0 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <div class="container nav-container">
+
+        <a href="index.html" class="logo">
+            Type<span>Sprint</span>
+        </a>
+
+        <nav>
+            <a href="index.html">Typing Test</a>
+            <a href="index.html#practice">Practice</a>
+            <a href="index.html#results">Results</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <button id="themeToggle" class="theme-button">
+            🌙
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+<section class="about-hero">
+
+    <div class="container">
+
+        <p class="eyebrow">
+            ABOUT TYPESPRINT
+        </p>
+
+        <h1>
+            Helping You Type Faster,
+            More Accurately.
+        </h1>
+
+        <p>
+            TypeSprint is a free online typing platform designed to help
+            students, professionals, developers and everyday computer users
+            measure their typing speed, improve accuracy and build confidence
+            through simple, focused practice.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="about-intro">
+
+    <div class="container about-intro-grid">
+
+        <div>
+
+            <p class="eyebrow">
+                OUR STORY
+            </p>
+
+            <h2>
+                A simple idea:
+                make typing practice useful and easy.
+            </h2>
+
+            <p>
+                TypeSprint was created to provide a straightforward way to test
+                typing speed without unnecessary complexity.
+            </p>
+
+            <p>
+                Users can measure words per minute, monitor accuracy, identify
+                typing errors and practice using different modes such as normal
+                text, numbers, punctuation and programming.
+            </p>
+
+            <p>
+                The goal is simple: give users practical tools that encourage
+                consistent improvement.
+            </p>
+
+        </div>
+
+
+        <div class="about-visual">
+
+            <h3>
+                Built for everyday improvement
+            </h3>
+
+            <div class="about-stat-grid">
+
+                <div class="about-stat">
+                    <strong>6</strong>
+                    <span>Timed test options</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>4</strong>
+                    <span>Typing modes</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>100%</strong>
+                    <span>Free to use</span>
+                </div>
+
+                <div class="about-stat">
+                    <strong>0</strong>
+                    <span>Account required</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                OUR MISSION
+            </p>
+
+            <h2>
+                Better typing through better practice.
+            </h2>
+
+            <p>
+                TypeSprint focuses on three principles.
+            </p>
+
+        </div>
+
+
+        <div class="mission-grid">
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    01
+                </div>
+
+                <h3>
+                    Make Practice Simple
+                </h3>
+
+                <p>
+                    Start a test quickly, choose your preferred duration and
+                    receive clear results without unnecessary steps.
+                </p>
+
+            </article>
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    02
+                </div>
+
+                <h3>
+                    Focus on Useful Metrics
+                </h3>
+
+                <p>
+                    Measure WPM, accuracy, errors and personal bests so progress
+                    can be understood clearly.
+                </p>
+
+            </article>
+
+
+            <article class="mission-card">
+
+                <div class="mission-number">
+                    03
+                </div>
+
+                <h3>
+                    Encourage Consistency
+                </h3>
+
+                <p>
+                    Short daily practice sessions can help users gradually
+                    improve speed, accuracy and keyboard confidence.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="features-about">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                WHAT YOU CAN DO
+            </p>
+
+            <h2>
+                More than a basic typing test.
+            </h2>
+
+        </div>
+
+
+        <div class="features-about-grid">
+
+            <article class="feature-about-card">
+
+                <div class="feature-about-icon">
+                    WPM
+                </div>
+
+                <h3>
+                    Speed Tests
+                </h3>
+
+                <p>
+                    Take tests from 30 seconds to 10 minutes and measure your
+                    typing speed.
+                </p>
+
+            </article>
+
+
+            <article class="feature-about-card">
+
+                <div class="feature-about-icon">
+                    %
+                </div>
+
+                <h3>
+                    Accuracy Tracking
+                </h3>
+
+                <p>
+                    See how accurately you type and identify where errors occur.
+                </p>
+
+            </article>
+
+
+            <article class="feature-about-card">
+
+                <div class="feature-about-icon">
+                    123
+                </div>
+
+                <h3>
+                    Specialized Practice
+                </h3>
+
+                <p>
+                    Practice normal text, numbers, punctuation and programming
+                    syntax.
+                </p>
+
+            </article>
+
+
+            <article class="feature-about-card">
+
+                <div class="feature-about-icon">
+                    ★
+                </div>
+
+                <h3>
+                    Personal Best
+                </h3>
+
+                <p>
+                    Track your best typing score locally and challenge yourself
+                    to improve.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<section class="why-section">
+
+    <div class="container why-grid">
+
+        <div>
+
+            <p class="eyebrow">
+                WHY TYPESPRINT
+            </p>
+
+            <h2>
+                Designed for focused typing practice.
+            </h2>
+
+            <p>
+                TypeSprint is intentionally lightweight and easy to use.
+                You can start a test immediately without creating an account.
+            </p>
+
+            <p>
+                Whether you're improving workplace productivity, preparing for
+                a typing assessment, practicing numeric entry or becoming more
+                comfortable typing code, TypeSprint provides dedicated tools
+                for different typing needs.
+            </p>
+
+        </div>
+
+
+        <ul class="why-list">
+
+            <li>✓ Free online typing tests</li>
+
+            <li>✓ No sign-up required</li>
+
+            <li>✓ Multiple timed test lengths</li>
+
+            <li>✓ WPM and accuracy measurement</li>
+
+            <li>✓ Number and punctuation practice</li>
+
+            <li>✓ Programming typing practice</li>
+
+            <li>✓ Dark mode support</li>
+
+            <li>✓ Mobile-friendly design</li>
+
+        </ul>
+
+    </div>
+
+</section>
+
+
+<section class="about-cta">
+
+    <div class="container">
+
+        <div class="about-cta-box">
+
+            <p class="eyebrow">
+                START PRACTICING
+            </p>
+
+            <h2>
+                Ready to test your typing speed?
+            </h2>
+
+            <p>
+                Choose a test duration, start typing and see your WPM,
+                accuracy and errors instantly.
+            </p>
+
+            <a
+                href="index.html"
+                class="primary-button"
+                style="
+                    display:inline-block;
+                    text-decoration:none;
+                "
+            >
+                Start Typing Test
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-container">
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo"
+            >
+                Type<span>Sprint</span>
+            </a>
+
+            <p>
+                Free online typing speed tests and practice tools.
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="about.html">
+                About
+            </a>
+
+            <a href="blog.html">
+                Blog
+            </a>
+
+            <a href="privacy.html">
+                Privacy
+            </a>
+
+            <a href="terms.html">
+                Terms
+            </a>
+
+            <a href="contact.html">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 TypeSprint. All rights reserved.
+    </p>
+
+</footer>
+
+
+<script>
+    const themeToggle =
+        document.getElementById("themeToggle");
+
+    themeToggle.addEventListener(
+        "click",
+        () => {
+
+            document.body.classList.toggle("dark");
+
+            const dark =
+                document.body.classList.contains("dark");
+
+            themeToggle.textContent =
+                dark ? "☀️" : "🌙";
+
+            localStorage.setItem(
+                "typesprintTheme",
+                dark ? "dark" : "light"
+            );
+
+        }
+    );
+
+    if (
+        localStorage.getItem("typesprintTheme")
+        === "dark"
+    ) {
+
+        document.body.classList.add("dark");
+
+        themeToggle.textContent = "☀️";
+
+    }
+</script>
+
+</body>
+</html>
