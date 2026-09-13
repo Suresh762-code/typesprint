@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://typesprint-v2.pages.dev/sitemap.xml
+Sitemap: https://typesprint-eao.pages.dev//sitemap.xml
