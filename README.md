@@ -2,7 +2,7 @@
 
 TypeSprint is a free online typing test designed to help users measure and improve their typing speed, accuracy, and overall typing performance.
 
-🌐 Live Website: https://typesprint-eao.pages.dev
+🌐 Live Website: https://typesprint-eao.pages.dev/
 
 ## Features
 
@@ -33,8 +33,4 @@ TypeSprint is a free online typing test designed to help users measure and impro
 
 TypeSprint is deployed using Cloudflare Pages.
 
-Live site: https://typesprint-eao.pages.dev
-
-## License
-
-Copyright © 2026 TypeSprint. All rights reserved.
+Live site: https://typesprint-eao.pages.dev/
