@@ -1,5 +1,40 @@
-# TypeSprint V2
+# TypeSprint ⌨️
 
-Includes 1/2/3/5/10-minute tests, normal/numbers/punctuation/programming modes, dark mode, personal best, local history, daily challenge, SEO landing pages, robots.txt, sitemap.xml, and AdSense placeholders.
+TypeSprint is a free online typing test designed to help users measure and improve their typing speed, accuracy, and overall typing performance.
 
-Before launch: replace example.com, replace placeholder email, update Privacy/Terms, upload to GitHub, deploy to Cloudflare Pages, connect domain, add Search Console, then apply for AdSense when the site is ready.
+🌐 Live Website: https://typesprint-eao.pages.dev
+
+## Features
+
+- Typing speed (WPM) and accuracy testing
+- Multiple test durations
+- Normal typing test
+- Number typing test
+- Punctuation typing test
+- Programming typing test
+- Personal best tracking
+- Typing history
+- Daily typing challenge
+- Dark and light modes
+- Responsive design
+- SEO-friendly pages
+- Typing guides and articles
+
+## Technologies
+
+- HTML5
+- CSS3
+- JavaScript
+- Browser Local Storage
+- Git & GitHub
+- Cloudflare Pages
+
+## Deployment
+
+TypeSprint is deployed using Cloudflare Pages.
+
+Live site: https://typesprint-eao.pages.dev
+
+## License
+
+Copyright © 2026 TypeSprint. All rights reserved.
